@@ -1,10 +1,10 @@
 'use strict'
 
-const express = require('express')
-const bodyParser = require('body-parser')
-const {resolve} = require('path')
+const express = require('express');
+const bodyParser = require('body-parser');
+const {resolve} = require('path');
 
-const app = express()
+const app = express();
 
 if (process.env.NODE_ENV !== 'production') {
   // Logging middleware (non-production only)
