@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import store from '../store';
+import { fetchCampuses, fetchStudents } from '../reducers'
 import Nav from './Nav';
 import AllCampuses from './AllCampuses';
 import SingleCampus from './SingleCampus';
@@ -12,18 +13,20 @@ import EditStudent from './EditStudent';
 import AddStudent from './AddStudent';
 
 export default class Root extends Component {
-    constructor(props) {
-        super(props);
+
+    componentDidMount() {
+        store.dispatch(fetchCampuses);
+        store.dispatch(fetchStudents);
     }
 
     render() {
         return (
-                <div id="school-main">
-                  <div id="title">
+            <div id="school-main">
+                <div id="title">
                     <h2>Margaret Hamilton Interplanetary Academy of JavaScript</h2>
-                  </div>
-                  <Nav />
-                  <main>
+                </div>
+                <Nav />
+                <main>
                     <Switch>
                         <Route exact path="/campuses" component={AllCampuses} />
                         <Route path="/campuses/:id" component={SingleCampus} />
@@ -35,8 +38,8 @@ export default class Root extends Component {
                         <Route path="/new-student" component={AddStudent} />} />
                         <Route component={AllCampuses} />
                     </Switch>
-                  </main>
-                </div>
+                </main>
+            </div>
         )
     }
 }
