@@ -6,9 +6,8 @@ function AllCampuses(props) {
     const { campuses } = props;
     return (
         <div>
-            <div className="title">
-                <h2>All Campuses</h2>
-            </div>
+            <div className="title">All Campuses</div>
+            <Link to="/new-campus"><button className="btn btn-default">Add Campus</button></Link>
             <div className="campus-list">
                 <ul>
                 {campuses.map(campus => <li key={campus.id}><Link to={`/campuses/${campus.id}`}>{campus.name}</Link></li>)}

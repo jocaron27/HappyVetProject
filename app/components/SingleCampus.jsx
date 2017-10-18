@@ -1,28 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 function SingleCampus(props) {
-    const { campus } = props;
+    const { campus, students } = props;
     return (
-        <div className="title">{campus.name}</div>
+        <div>
+            <div className="title">{campus.name}</div>
+            <div className="subtitle">Location: {campus.location}</div>
+            <img src={campus.imageUrl} />
+            <ul>
+                {students.map(student => <li key={student.id}><Link to={`/students/${student.id}`}>{student.fullName}</Link></li>)}
+            </ul>
+        </div>
     )
 }
 
-function mapStateToProps(state, ownProps) {
+const mapStateToProps = function(state, ownProps) {
     const campusId = Number(ownProps.match.params.id)
     return {
-        campus: state.allCampuses.find(campus => campus.id === campusId),
+        campus: state.allCampuses.find(campus => campus.id === campusId) || {name: '', imageUrl: ''},
         students: state.allStudents.filter(student => student.campusId === campusId)
     }
-}
-
-// function mapDispatchToProps(dispatch) {
-//     return {
-//         getCampus: function(campus) {
-//             dispatch(fetchCampuses(campus))
-//         }
-//     }
-// }
+};
 
 const LoadCampus = connect(mapStateToProps)(SingleCampus);
 
