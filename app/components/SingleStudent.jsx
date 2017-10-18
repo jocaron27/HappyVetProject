@@ -6,7 +6,7 @@ function SingleStudent(props) {
     const { student, campus } = props;
     return (
         <div>
-            <div className="title">student.fullName}</div>
+            <div className="title">{student.fullName}</div>
             <div className="subtitle">Campus: <Link to={`/campuses/${campus.id}`}>{campus.name}</Link></div>
             <h4>{student.email}</h4>
             <h4>Age: {student.age}</h4>

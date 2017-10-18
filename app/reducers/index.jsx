@@ -137,13 +137,33 @@ export function createCampus(campus, history) {
   }
 }
 
-export function createStudent(student) {
+export function createStudent(student, history) {
   return function thunk (dispatch) {
     return axios.post('/api/students', student)
     .then(res => res.data)
     .then(newStudent => {
       dispatch(addStudent(newStudent))
+      history.push(`/students/${newStudent.id}`);
     });
+  }
+}
+
+export function deleteCampus(campusId, history) {
+  return function thunk(dispatch) {
+    return axios.delete(`/api/campuses/${campusId}`)
+    .then(() => {
+      dispatch(fetchCampuses())
+    })
+    .then(() => history.push('/'))
+  }
+}
+
+export function deleteStudent(studentId, history) {
+  return function thunk(dispatch) {
+    return axios.delete(`/api/students/${studentId}`)
+    .then(() => {
+      dispatch(fetchStudents())
+    })
   }
 }
 

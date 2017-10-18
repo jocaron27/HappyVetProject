@@ -65,7 +65,7 @@ const mapDispatchToProps = function (dispatch, ownProps) {
       dispatch(createCampus({name, location, imageUrl}, ownProps.history));
       dispatch(writeCampusName(''));
       dispatch(writeCampusLocation(''));
-      dispatch(writeCampusImage(''))
+      dispatch(selectCampusImage(''))
     }
   };
 };
