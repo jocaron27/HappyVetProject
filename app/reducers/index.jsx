@@ -172,7 +172,7 @@ export function editCampus(campus, history) {
     return axios.put(`/api/campuses/${campus.id}`, campus)
     .then(() => {
       dispatch(fetchCampuses())
-      history.push('/campuses')
+      history.push(`/campuses/${campus.id}`)
     })
   }
 }
@@ -182,7 +182,7 @@ export function editStudent(student, history) {
     return axios.put(`/api/students/${student.id}`, student)
     .then(() => {
       dispatch(fetchStudents())
-      history.push('/students')
+      history.push(`/students/${student.id}`)
     })
   }
 }
