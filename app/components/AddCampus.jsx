@@ -5,40 +5,42 @@ import { writeCampusName, writeCampusLocation, selectCampusImage, createCampus }
 function AddCampus(props) {
     const { newCampusEntryImage, newCampusEntryName, newCampusEntryLocation, handleChangeName, handleChangeLocation, handleChangeImage, handleSubmit } = props;
     return (
-        <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Add a Campus</label>
-          <input
-            value={newCampusEntryName}
-            onChange={handleChangeName}
+      <div className="main">
+        <form className="form" onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label htmlFor="name"><h2>Add a Campus</h2></label>
+            <input
+              value={newCampusEntryName}
+              onChange={handleChangeName}
+              className="form-control"
+              type="text"
+              name="name"
+              placeholder="Enter campus name"
+            />
+            <input
+            value={newCampusEntryLocation}
+            onChange={handleChangeLocation}
             className="form-control"
             type="text"
-            name="name"
-            placeholder="Enter campus name"
-          />
-          <input
-          value={newCampusEntryLocation}
-          onChange={handleChangeLocation}
-          className="form-control"
-          type="text"
-          name="location"
-          placeholder="Enter campus location"
-          />
-          <select name="imageUrl" value={newCampusEntryImage} onChange={handleChangeImage}>
-            <option>Choose an Image</option>
-            <option value="/mars.png">Red Planet</option>
-            <option value="/neptune.png">Purple Planet</option>
-            <option value="/venus.png">Orange Planet</option>
-            <option value="/jupiter.png">Brown Planet</option>
-            <option value="/mercury.png">Yellow Planet</option>
-            <option value="/uranus.png">Blue Planet</option>
-            <option value="/pluto.png">White Planet</option>
-          </select>
-        </div>
-        <div className="form-group">
-          <button type="submit" className="btn btn-default">Add Campus</button>
-        </div>
-      </form>
+            name="location"
+            placeholder="Enter campus location"
+            />
+            <select name="imageUrl" value={newCampusEntryImage} onChange={handleChangeImage}>
+              <option>Choose an Image</option>
+              <option value="/mars.png">Red Planet</option>
+              <option value="/neptune.png">Purple Planet</option>
+              <option value="/venus.png">Orange Planet</option>
+              <option value="/jupiter.png">Brown Planet</option>
+              <option value="/mercury.png">Yellow Planet</option>
+              <option value="/uranus.png">Blue Planet</option>
+              <option value="/pluto.png">White Planet</option>
+            </select>
+          </div>
+          <div className="form-group">
+            <button type="submit" className="button-main">Add Campus</button>
+          </div>
+        </form>
+    </div>
     )
 }
 

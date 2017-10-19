@@ -5,51 +5,53 @@ import { writeStudentFirstName, writeStudentLastName, writeStudentAge, writeStud
 function AddStudent(props) {
     const { newStudentEntryFirstName, newStudentEntryLastName, newStudentEntryAge, newStudentEntryEmail, newStudentEntryCampusId, handleChangeFirstName, handleChangeLastName, handleChangeAge, handleChangeEmail, handleChangeCampusId, allCampuses, handleSubmit } = props;
     return (
-        <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label htmlFor="name">Add a Student</label>
-            <input
-                value={newStudentEntryFirstName}
-                onChange={handleChangeFirstName}
-                className="form-control"
-                type="text"
-                name="first"
-                placeholder="Enter first name"
-            />
-            <input
-                value={newStudentEntryLastName}
-                onChange={handleChangeLastName}
-                className="form-control"
-                type="text"
-                name="last"
-                placeholder="Enter last name"
-            />
-            <input
-                value={newStudentEntryAge}
-                onChange={handleChangeAge}
-                className="form-control"
-                type="text"
-                name="age"
-                placeholder="Enter age"
-                min="18"
-            />
-            <input
-                value={newStudentEntryEmail}
-                onChange={handleChangeEmail}
-                className="form-control"
-                type="text"
-                name="email"
-                placeholder="Enter email"
-            />
-            <select name="campusId" value={newStudentEntryCampusId} onChange={handleChangeCampusId}>
-                <option>Choose a Campus</option>
-                {allCampuses.map(campus => <option key={campus.id} value={campus.id}>{campus.name}</option>)}
-            </select>
-        </div>
-        <div className="form-group">
-          <button type="submit" className="btn btn-default">Add Student</button>
-        </div>
-      </form>
+        <div className="main">
+            <form className="form" onSubmit={handleSubmit}>
+            <div className="form-group">
+            <label htmlFor="name"><h2>Add a Student</h2></label>
+                <input
+                    value={newStudentEntryFirstName}
+                    onChange={handleChangeFirstName}
+                    className="form-control medium"
+                    type="text"
+                    name="first"
+                    placeholder="Enter first name"
+                />
+                <input
+                    value={newStudentEntryLastName}
+                    onChange={handleChangeLastName}
+                    className="form-control medium"
+                    type="text"
+                    name="last"
+                    placeholder="Enter last name"
+                />
+                <input
+                    value={newStudentEntryAge}
+                    onChange={handleChangeAge}
+                    className="form-control small"
+                    type="text"
+                    name="age"
+                    placeholder="Enter age"
+                    min="18"
+                />
+                <input
+                    value={newStudentEntryEmail}
+                    onChange={handleChangeEmail}
+                    className="form-control large"
+                    type="text"
+                    name="email"
+                    placeholder="Enter email"
+                />
+                <select name="campusId" value={newStudentEntryCampusId} onChange={handleChangeCampusId}>
+                    <option>Choose a Campus</option>
+                    {allCampuses.map(campus => <option key={campus.id} value={campus.id}>{campus.name}</option>)}
+                </select>
+            </div>
+            <div className="form-group">
+            <button type="submit" className="button-main">Add Student</button>
+            </div>
+        </form>
+      </div>
     )
 }
 
