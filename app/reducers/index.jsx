@@ -154,7 +154,7 @@ export function deleteCampus(campusId, history) {
     .then(() => {
       dispatch(fetchCampuses())
     })
-    .then(() => history.push('/'))
+    .then(() => history.push('/campuses'))
   }
 }
 

@@ -6,23 +6,27 @@ import { deleteCampus, fetchCampuses } from '../reducers'
 function AllCampuses(props) {
     const { campuses, removeCampus } = props;
     return (
-        <div>
-            <div className="title">All Campuses</div>
-            <Link to="/new-campus"><button className="btn btn-default">Add Campus</button></Link>
-            <div className="campus-list">
-                <ul>
+        <div className="main">
+            <div className="campus-add">
+                <Link to="/new-campus"><button className="button-main"><span className="glyphicon glyphicon-plus" />Add Campus</button></Link>
+            </div>
+            <div className="list">
                 {campuses.map(campus => {
                     return (
-                    <li key={campus.id}>
-                        <Link to={`/campuses/${campus.id}`}>{campus.name}</Link>
-                        <Link to={`/campuses/edit/${campus.id}`}>
-                            <button value={campus.id} className="btn btn-default">Edit</button>
-                        </Link>
-                        <button value={campus.id} onClick={removeCampus} className="btn btn-default">Delete</button>
-                    </li>
+                    <Link to={`/campuses/${campus.id}`} key={campus.id} className="list-link">
+                        <div className="campus">
+                            <div className="campus-title">{campus.name}</div>
+                            <div className="campus-modify">
+                                <Link to={`/campuses/edit/${campus.id}`}>
+                                    <button value={campus.id} className="glyphicon glyphicon-pencil" />
+                                </Link>
+                                    <button value={campus.id} onClick={removeCampus} className="glyphicon glyphicon-remove" />
+                            </div>
+                            <img src={campus.imageUrl} />
+                        </div>
+                    </Link>
                     )
                 })}
-                </ul>
             </div>
         </div>
     )
@@ -34,11 +38,12 @@ function mapStateToProps(state) {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
     return {
         removeCampus: function(event) {
             confirm("Are you sure you want to delete this campus?");
-            dispatch(deleteCampus(event.target.value))
+            console.log(event.target.value);
+            dispatch(deleteCampus(event.target.value, ownProps.history));
             dispatch(fetchCampuses());
         }
     }

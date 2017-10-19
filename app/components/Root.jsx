@@ -11,6 +11,7 @@ import AllStudents from './AllStudents';
 import SingleStudent from './SingleStudent';
 import EditStudent from './EditStudent';
 import AddStudent from './AddStudent';
+import Welcome from './Welcome';
 
 export default class Root extends Component {
 
@@ -22,9 +23,6 @@ export default class Root extends Component {
     render() {
         return (
             <div id="school-main">
-                <div id="title">
-                    <h2>Margaret Hamilton Interplanetary Academy of JavaScript</h2>
-                </div>
                 <Nav />
                 <main>
                     <Switch>
@@ -36,7 +34,7 @@ export default class Root extends Component {
                         <Route exact path="/students/:id" component={SingleStudent} />
                         <Route exact path="/students/edit/:id" component={EditStudent} />
                         <Route path="/new-student" component={AddStudent} />} />
-                        <Route component={AllCampuses} />
+                        <Route component={Welcome} />
                     </Switch>
                 </main>
             </div>

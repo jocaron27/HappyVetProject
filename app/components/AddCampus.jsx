@@ -30,6 +30,9 @@ function AddCampus(props) {
             <option value="/neptune.png">Purple Planet</option>
             <option value="/venus.png">Orange Planet</option>
             <option value="/jupiter.png">Brown Planet</option>
+            <option value="/mercury.png">Yellow Planet</option>
+            <option value="/uranus.png">Blue Planet</option>
+            <option value="/pluto.png">White Planet</option>
           </select>
         </div>
         <div className="form-group">

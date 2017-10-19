@@ -6,23 +6,29 @@ import { deleteStudent, fetchStudents } from '../reducers';
 function AllStudents(props) {
     const { students, removeStudent } = props;
     return (
-        <div>
-            <div className="title">All Students</div>
-            <Link to="/new-student"><button className="btn btn-default">Add Student</button></Link>
-            <div className="student-list">
-                <ul>
+        <div className="main">
+            <div className="campus-add">
+                <Link to="/new-student"><button className="button-main"><span className="glyphicon glyphicon-plus" />Add Student</button></Link>
+            </div>
+            <div className="list">
+                <table>
+                <tr>
+                    <th>Students</th>
+                    <th />
+                </tr>
                 {students.map(student => {
                     return (
-                        <li key={student.id}>
-                            <Link to={`/students/${student.id}`}>{student.fullName}</Link> 
-                            <Link to={`/students/edit/${student.id}`}>
-                                <button value={student.id} className="btn btn-default">Edit</button>
+                        <tr key={student.id}>
+                            <td><Link to={`/students/${student.id}`}>{student.fullName}</Link></td>
+                            <td><Link to={`/students/edit/${student.id}`}>
+                                <span value={student.id} className="glyphicon glyphicon-pencil" />
                             </Link>
-                            <button value={student.id} onClick={removeStudent} className="btn btn-default">Delete</button>
-                        </li>
+                            <span value={student.id} onClick={removeStudent} className="glyphicon glyphicon-remove" />
+                            </td>
+                        </tr>
                     )}
                 )}
-                </ul>
+                </table>
             </div>
         </div>
     )
@@ -34,11 +40,11 @@ function mapStateToProps(state) {
     }
 }
 
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch, ownProps) {
     return {
         removeStudent: function(event) {
             confirm("Are you sure you want to delete this student?");
-            dispatch(deleteStudent(event.target.value))
+            dispatch(deleteStudent(event.target.value, ownProps.history))
             dispatch(fetchStudents());
         }
     }

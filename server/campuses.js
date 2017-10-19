@@ -42,11 +42,13 @@ router.put('/:id', (req, res, next) => {
 
 //Delete campus
 router.delete('/:id', (req, res, next) => {
-    Campus.destroy(
-        { where: {
+    Campus.findOne({
+        where: {
             id: req.params.id
         }
     })
+    .then(campus => campus.destroy())
+    .then(res.sendStatus(200))
     .catch(console.error)
 })
 

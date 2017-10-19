@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css?family=Concert+One|Open+Sans:400,800|Pacifico');
+
+/* ----------- General -------------- */
+
+body {
+    margin: 0px;
+    background-color: #491037 !important;    
+}
+
+.button-main {
+    background: #cbd042;
+    color: #fff;
+    border-radius: 7px;
+    box-shadow: 0 5px #90942A;
+    padding: 14px 37px 14px 44px;
+    border: none;
+    cursor: pointer;
+    margin: 15px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.button-main > .glyphicon {
+    margin-right: .5em;
+}
+
+/* ----------- Nav -------------- */
+
+nav {
+    height: 100px;
+    background-color: #57c0b2;
+    box-shadow: 0 5px #173632;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    vertical-align: center;
+}
+
+#title {
+    align-self: center;
+    float: left;
+    flex: 7;
+    margin-top: .4em;
+    margin-left: 2em;
+    font-family: 'Concert One';
+    color: white !important;
+}
+
+#title h2 {
+    font-weight: lighter;
+    font-size: 40px;
+    text-decoration: none !important;
+}
+
+#title a {
+    text-decoration: none !important;
+    color: white !important;
+}
+
+#menu {
+    align-self: center;
+    float: right;
+    flex: 3;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: right;
+    margin-top: 1.7em;
+    vertical-align: center;
+}
+
+#menu a {
+    align-self: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    font-family: 'Open Sans';
+    background: none;
+    margin: 0em .5em;
+    padding: 1em 2em;
+    box-shadow: inset 0 0 0 2px #491037;
+    color: #491037;
+    font-size: inherit;
+    font-weight: 700;
+}
+
+#menu a:active {
+    box-shadow: inset 0 0 0 2px #E9E8EF;
+    color: #E9E8EF;
+}
+
+.active {
+    box-shadow: inset 0 0 0 2px #E9E8EF !important;
+    color: #E9E8EF !important;
+}
+
+/* ----------- Main -------------- */
+
+#main {
+    background-color: #491037;
+    width: 100vw;
+    height: 100%;
+    padding-bottom: 50px;
+}
+
+.main {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    margin-top: 25px;
+}
+
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    margin: auto;
+    align-self: center;
+}
+
+.list > a {
+    text-decoration: none;
+}
+
+.list > table {
+    width: 90vw;
+}
+
+/* ----------- Welcome -------------- */
+
+.welcome {
+    font-family: 'Pacifico';
+    color: white;
+    font-size: 72px;
+    align-self: center;
+}
+
+.welcome-image {
+    align-self: center;
+}
+
+.welcome-image:hover {
+    transform: rotate(360deg);
+    transition: all 2s ease;
+}
+
+/* ----------- All Campuses -------------- */
+
+.campus {
+    flex: 2;
+    width: calc(100vw*.25 - 36px);
+    height: calc(100vw*.25 - 36px);
+    background-color: #f7b443;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px #24072C;
+    margin: 1em;
+    overflow-wrap: wrap;
+    overflow: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.campus:hover {
+    text-decoration: none;
+    transform: rotate(2deg);
+}
+
+.campus img {
+    max-width: 50%;
+    max-height: 50%;
+    align-self: center;
+    position: relative;
+    margin: auto;
+    border-radius: 100%;
+    box-shadow: 0px 5px 5px #24072C;
+}
+
+.campus-title {
+    color: #302c1b;
+    font-family: 'Open Sans';
+    font-size: 25px;
+    text-decoration: none;
+    margin-top: 1em;
+}
+
+.campus-modify .glyphicon {
+    margin: .5em;
+    padding: .5em;
+    color: black;
+    border: 1px solid black;
+    border-radius: 100%;
+    background-color: transparent;
+}
