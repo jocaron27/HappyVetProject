@@ -7,7 +7,7 @@ function AddStudent(props) {
     return (
         <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label htmlFor="name">Add a Campus</label>
+          <label htmlFor="name">Add a Student</label>
             <input
                 value={newStudentEntryFirstName}
                 onChange={handleChangeFirstName}
@@ -42,6 +42,7 @@ function AddStudent(props) {
                 placeholder="Enter email"
             />
             <select name="campusId" value={newStudentEntryCampusId} onChange={handleChangeCampusId}>
+                <option>Choose a Campus</option>
                 {allCampuses.map(campus => <option key={campus.id} value={campus.id}>{campus.name}</option>)}
             </select>
         </div>

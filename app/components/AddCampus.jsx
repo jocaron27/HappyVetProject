@@ -25,6 +25,7 @@ function AddCampus(props) {
           placeholder="Enter campus location"
           />
           <select name="imageUrl" value={newCampusEntryImage} onChange={handleChangeImage}>
+            <option>Choose an Image</option>
             <option value="/mars.png">Red Planet</option>
             <option value="/neptune.png">Purple Planet</option>
             <option value="/venus.png">Orange Planet</option>
@@ -65,7 +66,7 @@ const mapDispatchToProps = function (dispatch, ownProps) {
       dispatch(createCampus({name, location, imageUrl}, ownProps.history));
       dispatch(writeCampusName(''));
       dispatch(writeCampusLocation(''));
-      dispatch(selectCampusImage(''))
+      dispatch(selectCampusImage(''));
     }
   };
 };

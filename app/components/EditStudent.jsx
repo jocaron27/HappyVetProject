@@ -1,9 +1,108 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { editStudent, writeStudentFirstName, writeStudentLastName, writeStudentAge, writeStudentEmail, writeStudentCampus } from '../reducers';
 
-export default function() {
+function EditStudent(props) {
+    const {
+        allCampuses, student, handleChangeFirstName, handleChangeLastName, handleChangeAge, handleChangeEmail, handleChangeCampusId, handleSubmit, newStudentEntryFirstName, newStudentEntryLastName, newStudentEntryAge, newStudentEntryEmail, newStudentEntryCampusId } = props;
     return (
-        <div id="welcome"></div>
+    <div>
+        <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Edit Student</label>
+            <input
+                value={newStudentEntryFirstName}
+                onChange={handleChangeFirstName}
+                className="form-control"
+                type="text"
+                name="first"
+                placeholder={student.first}
+            />
+            <input
+                value={newStudentEntryLastName}
+                onChange={handleChangeLastName}
+                className="form-control"
+                type="text"
+                name="last"
+                placeholder={student.last}
+            />
+            <input
+                value={newStudentEntryAge}
+                onChange={handleChangeAge}
+                className="form-control"
+                type="text"
+                name="age"
+                placeholder={student.age}
+                min="18"
+            />
+            <input
+                value={newStudentEntryEmail}
+                onChange={handleChangeEmail}
+                className="form-control"
+                type="text"
+                name="email"
+                placeholder={student.email}
+            />
+            <select name="campusId" value={newStudentEntryCampusId} onChange={handleChangeCampusId}>
+                <option>Choose a Campus</option>
+                {allCampuses.map(campus => <option key={campus.id} value={campus.id}>{campus.name}</option>)}
+            </select>
+        </div>
+        <div className="form-group">
+          <button type="submit" className="btn btn-default">Edit Student</button>
+        </div>
+      </form>
+    </div>
     )
 }
+
+const mapStateToProps = function (state, ownProps) {
+    const studentId = Number(ownProps.match.params.id);
+    return {
+        allCampuses: state.allCampuses,
+        student: state.allStudents.find(student => student.id === studentId) || {first: '', last: '', age: '', email: '', campusId: ''},
+        newStudentEntryFirstName: state.newStudentEntryFirstName,
+        newStudentEntryLastName: state.newStudentEntryLastName,
+        newStudentEntryAge: state.newStudentEntryAge,
+        newStudentEntryEmail: state.newStudentEntryEmail,
+        newStudentEntryCampusId: state.newStudentEntryCampusId
+    }
+};
+
+const mapDispatchToProps = function (dispatch, ownProps) {
+  const id = Number(ownProps.match.params.id);    
+  return {
+    handleChangeFirstName (event) {
+        dispatch(writeStudentFirstName(event.target.value));
+    },
+    handleChangeLastName(event) {
+        dispatch(writeStudentLastName(event.target.value))
+    },
+    handleChangeAge(event) {
+        dispatch(writeStudentAge(event.target.value))
+    },
+    handleChangeEmail(event) {
+        dispatch(writeStudentEmail(event.target.value))
+    },
+    handleChangeCampusId(event) {
+        dispatch(writeStudentCampus(event.target.value))
+    },
+    handleSubmit: function(event) {
+        event.preventDefault();
+        const first = event.target.first.value;
+        const last = event.target.last.value;
+        const age = event.target.age.value;
+        const email = event.target.email.value;
+        const campusId = event.target.campusId.value
+        dispatch(editStudent({id, first, last, age, email, campusId}, ownProps.history));
+        dispatch(writeStudentFirstName(''));
+        dispatch(writeStudentLastName(''));
+        dispatch(writeStudentAge(''));
+        dispatch(writeStudentEmail(''));
+        dispatch(writeStudentCampus(''));
+    }
+  }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditStudent);
 

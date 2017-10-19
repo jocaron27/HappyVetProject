@@ -11,7 +11,17 @@ function AllCampuses(props) {
             <Link to="/new-campus"><button className="btn btn-default">Add Campus</button></Link>
             <div className="campus-list">
                 <ul>
-                {campuses.map(campus => <li key={campus.id}><Link to={`/campuses/${campus.id}`}>{campus.name}</Link> <button value={campus.id} onClick={removeCampus} className="btn btn-default">Delete</button></li>)}
+                {campuses.map(campus => {
+                    return (
+                    <li key={campus.id}>
+                        <Link to={`/campuses/${campus.id}`}>{campus.name}</Link>
+                        <Link to={`/campuses/edit/${campus.id}`}>
+                            <button value={campus.id} className="btn btn-default">Edit</button>
+                        </Link>
+                        <button value={campus.id} onClick={removeCampus} className="btn btn-default">Delete</button>
+                    </li>
+                    )
+                })}
                 </ul>
             </div>
         </div>
@@ -34,6 +44,4 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-const CampusList = connect(mapStateToProps, mapDispatchToProps)(AllCampuses);
-
-export default CampusList;
+export default connect(mapStateToProps, mapDispatchToProps)(AllCampuses);

@@ -167,6 +167,26 @@ export function deleteStudent(studentId, history) {
   }
 }
 
+export function editCampus(campus, history) {
+  return function thunk(dispatch) {
+    return axios.put(`/api/campuses/${campus.id}`, campus)
+    .then(() => {
+      dispatch(fetchCampuses())
+      history.push('/campuses')
+    })
+  }
+}
+
+export function editStudent(student, history) {
+  return function thunk(dispatch) {
+    return axios.put(`/api/students/${student.id}`, student)
+    .then(() => {
+      dispatch(fetchStudents())
+      history.push('/students')
+    })
+  }
+}
+
 //Reducer
 const rootReducer = function(state = initialState, action) {
   switch (action.type) {

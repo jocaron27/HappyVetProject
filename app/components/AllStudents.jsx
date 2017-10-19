@@ -11,7 +11,17 @@ function AllStudents(props) {
             <Link to="/new-student"><button className="btn btn-default">Add Student</button></Link>
             <div className="student-list">
                 <ul>
-                {students.map(student => <li key={student.id}><Link to={`/students/${student.id}`}>{student.fullName}</Link> <button value={student.id} onClick={removeStudent} className="btn btn-default">Delete</button></li>)}
+                {students.map(student => {
+                    return (
+                        <li key={student.id}>
+                            <Link to={`/students/${student.id}`}>{student.fullName}</Link> 
+                            <Link to={`/students/edit/${student.id}`}>
+                                <button value={student.id} className="btn btn-default">Edit</button>
+                            </Link>
+                            <button value={student.id} onClick={removeStudent} className="btn btn-default">Delete</button>
+                        </li>
+                    )}
+                )}
                 </ul>
             </div>
         </div>
@@ -34,7 +44,5 @@ function mapDispatchToProps(dispatch) {
     }
 }
 
-const StudentList = connect(mapStateToProps, mapDispatchToProps)(AllStudents);
-
-export default StudentList;
+export default connect(mapStateToProps, mapDispatchToProps)(AllStudents);
 
