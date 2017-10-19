@@ -78,10 +78,14 @@ const mapDispatchToProps = function (dispatch, ownProps) {
     },
     handleSubmit: function(event) {
         event.preventDefault();
-        const name = event.target.name.value;
-        const location = event.target.location.value;
-        const imageUrl = event.target.imageUrl.value;
-        dispatch(editCampus({id, name, location, imageUrl}, ownProps.history));
+        const checkForUpdate = { name: event.target.name.value, location: event.target.location.value, imageUrl: event.target.imageUrl.value}
+        const toUpdate = { id };
+        for (var keys in checkForUpdate) {
+            if (checkForUpdate[keys]) {
+                toUpdate[keys] = checkForUpdate[keys];
+            }
+        }
+        dispatch(editCampus(toUpdate, ownProps.history));
         dispatch(writeCampusName(''));
         dispatch(writeCampusLocation(''));
         dispatch(selectCampusImage(''));

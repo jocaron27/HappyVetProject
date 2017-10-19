@@ -43,8 +43,7 @@ function EditStudent(props) {
                 name="email"
                 placeholder={student.email}
             />
-            <select name="campusId" value={newStudentEntryCampusId} onChange={handleChangeCampusId}>
-                <option>Choose a Campus</option>
+            <select name="campusId" value={newStudentEntryCampusId || student.campusId} onChange={handleChangeCampusId}>
                 {allCampuses.map(campus => <option key={campus.id} value={campus.id}>{campus.name}</option>)}
             </select>
         </div>
@@ -70,7 +69,7 @@ const mapStateToProps = function (state, ownProps) {
 };
 
 const mapDispatchToProps = function (dispatch, ownProps) {
-  const id = Number(ownProps.match.params.id);    
+  const id = Number(ownProps.match.params.id);
   return {
     handleChangeFirstName (event) {
         dispatch(writeStudentFirstName(event.target.value));
@@ -89,12 +88,14 @@ const mapDispatchToProps = function (dispatch, ownProps) {
     },
     handleSubmit: function(event) {
         event.preventDefault();
-        const first = event.target.first.value;
-        const last = event.target.last.value;
-        const age = event.target.age.value;
-        const email = event.target.email.value;
-        const campusId = event.target.campusId.value
-        dispatch(editStudent({id, first, last, age, email, campusId}, ownProps.history));
+        const checkForUpdate = { first: event.target.first.value, last: event.target.last.value, age: event.target.age.value, email: event.target.email.value, campusId: event.target.campusId.value}
+        const toUpdate = { id };
+        for (var keys in checkForUpdate) {
+            if (checkForUpdate[keys]) {
+                toUpdate[keys] = checkForUpdate[keys];
+            }
+        }
+        dispatch(editStudent(toUpdate, ownProps.history));
         dispatch(writeStudentFirstName(''));
         dispatch(writeStudentLastName(''));
         dispatch(writeStudentAge(''));
