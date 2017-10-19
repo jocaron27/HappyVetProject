@@ -15,10 +15,11 @@ function AllStudents(props) {
                 {students.map(student => {
                     return (
                         <tr key={student.id}>
-                            <td className="modify"><Link to={`/students/edit/${student.id}`}>
-                                <button value={student.id} className="glyphicon glyphicon-pencil" />
-                            </Link>
-                            <button value={student.id} onClick={removeStudent} className="glyphicon glyphicon-remove" />
+                            <td className="modify">
+                                <Link to={`/students/edit/${student.id}`}>
+                                    <button value={student.id} className="glyphicon glyphicon-pencil" />
+                                </Link>
+                                <button value={student.id} onClick={removeStudent} className="glyphicon glyphicon-remove" />
                             </td>
                             <td><Link to={`/students/${student.id}`}><button className="student-button">{student.fullName}</button></Link></td>
                         </tr>

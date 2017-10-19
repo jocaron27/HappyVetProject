@@ -435,6 +435,17 @@ nav {
     background: #9A8E77 !important;
 }
 
+.form .student-button {
+    background: #E8E5DE !important;
+    color: #24072C;
+    border-radius: 7px;
+    box-shadow: 0 5px #9A8E77 !important;
+}
+
+.form .student-button:hover {
+    background: #9A8E77 !important;
+}
+
 .form select {
     height: 35px;
 }
@@ -449,4 +460,14 @@ nav {
 
 .form input.small {
     width: 100px;
+}
+
+.instructions {
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+.edit-students {
+    align-self: center;
+    width: 500px;
 }
