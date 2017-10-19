@@ -47,10 +47,8 @@ router.delete('/:id', (req, res, next) => {
             id: req.params.id
         }
     })
-    .then(student => {
-        return student.destroy();
-    })
-    .then(student => res.json(student))
+    .then(student => student.destroy())
+    .then(res.sendStatus(200))
     .catch(console.error)
 })
 

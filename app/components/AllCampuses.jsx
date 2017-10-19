@@ -10,13 +10,13 @@ function AllCampuses(props) {
             <div className="campus-add">
                 <Link to="/new-campus"><button className="button-main"><span className="glyphicon glyphicon-plus" />Add Campus</button></Link>
             </div>
-            <div className="list">
+            <div className="campus-list">
                 {campuses.map(campus => {
                     return (
                     <Link to={`/campuses/${campus.id}`} key={campus.id} className="list-link">
                         <div className="campus">
                             <div className="campus-title">{campus.name}</div>
-                            <div className="campus-modify">
+                            <div className="modify">
                                 <Link to={`/campuses/edit/${campus.id}`}>
                                     <button value={campus.id} className="glyphicon glyphicon-pencil" />
                                 </Link>

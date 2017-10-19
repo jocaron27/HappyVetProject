@@ -7,24 +7,20 @@ function AllStudents(props) {
     const { students, removeStudent } = props;
     return (
         <div className="main">
-            <div className="campus-add">
+            <div className="student-add">
                 <Link to="/new-student"><button className="button-main"><span className="glyphicon glyphicon-plus" />Add Student</button></Link>
             </div>
-            <div className="list">
+            <div className="student-list">
                 <table>
-                <tr>
-                    <th>Students</th>
-                    <th />
-                </tr>
                 {students.map(student => {
                     return (
                         <tr key={student.id}>
-                            <td><Link to={`/students/${student.id}`}>{student.fullName}</Link></td>
-                            <td><Link to={`/students/edit/${student.id}`}>
-                                <span value={student.id} className="glyphicon glyphicon-pencil" />
+                            <td className="modify"><Link to={`/students/edit/${student.id}`}>
+                                <button value={student.id} className="glyphicon glyphicon-pencil" />
                             </Link>
-                            <span value={student.id} onClick={removeStudent} className="glyphicon glyphicon-remove" />
+                            <button value={student.id} onClick={removeStudent} className="glyphicon glyphicon-remove" />
                             </td>
+                            <td><Link to={`/students/${student.id}`}><button className="student-button">{student.fullName}</button></Link></td>
                         </tr>
                     )}
                 )}

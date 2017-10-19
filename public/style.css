@@ -28,6 +28,19 @@ body {
     margin-right: .5em;
 }
 
+.modify {
+    align-self: center;
+}
+
+.modify .glyphicon {
+    margin: .5em;
+    padding: .5em;
+    color: black;
+    border: 1px solid black;
+    border-radius: 100%;
+    background-color: transparent;
+}
+
 /* ----------- Nav -------------- */
 
 nav {
@@ -115,24 +128,6 @@ nav {
     margin-top: 25px;
 }
 
-.list {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-    align-items: center;
-    position: relative;
-    margin: auto;
-    align-self: center;
-}
-
-.list > a {
-    text-decoration: none;
-}
-
-.list > table {
-    width: 90vw;
-}
-
 /* ----------- Welcome -------------- */
 
 .welcome {
@@ -149,6 +144,7 @@ nav {
 .welcome-image:hover {
     transform: rotate(360deg);
     transition: all 2s ease;
+    cursor: pointer;
 }
 
 /* ----------- All Campuses -------------- */
@@ -184,19 +180,210 @@ nav {
     box-shadow: 0px 5px 5px #24072C;
 }
 
+.campus-single {
+    width: 55vw;
+    background-color: #f7b443;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px #24072C;
+    margin: auto;
+    overflow-wrap: wrap;
+    overflow: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.campus-single .student-button {
+    background: #E8E5DE !important;
+    color: #24072C;
+    border-radius: 7px;
+    box-shadow: 0 5px #9A8E77 !important;
+}
+
+.campus-single .student-button:hover {
+    background: #9A8E77 !important;
+}
+
+.campus-info img {
+    flex: 5;
+    align-self: center;
+    position: relative;
+    width: 100px;
+    margin: auto;
+    margin: 2em;
+    border-radius: 100%;
+    box-shadow: 0px 5px 5px #24072C;
+}
+
+.campus-info {
+    display: flex;
+    flex-direction: row;
+    align-self: left;
+    margin-left: 70px;
+    margin-top: 30px;
+}
+
+.campus-header-main {
+    display: flex;
+    flex-direction: column;
+    vertical-align: center;
+    flex: 5;
+    margin: auto;
+}
+
+.campus-header-sub {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    vertical-align: center;
+    align-self: left;
+}
+
+.campus-header-sub .modify {
+    margin: auto !important;
+}
+
 .campus-title {
     color: #302c1b;
     font-family: 'Open Sans';
     font-size: 25px;
     text-decoration: none;
     margin-top: 1em;
+    align-self: center;
 }
 
-.campus-modify .glyphicon {
-    margin: .5em;
-    padding: .5em;
-    color: black;
-    border: 1px solid black;
-    border-radius: 100%;
-    background-color: transparent;
+.campus-subtitle {
+    color: #302c1b;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    text-decoration: none;
+    align-self: left;
+}
+
+.campus-header-sub .campus-title {
+    margin: auto !important;
+}
+
+.campus-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    margin: auto;
+    align-self: center;
+}
+
+.campus-list > a {
+    text-decoration: none;
+}
+
+/* ----------- All Students -------------- */
+
+.student-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.student-list > a {
+    text-decoration: none;
+}
+
+.student-list > table {
+    width: 30vw;
+    float: left;
+    margin-left: 2em;
+    margin-top: 2em;
+}
+
+.student-list > table .modify .glyphicon {
+    color: white !important;
+    border-color: white !important;
+}
+
+.student-button {
+    background: #f7b443;
+    color: #24072C;
+    border-radius: 7px;
+    box-shadow: 0 5px #A07121;
+    padding: 7px 45px 7px 55px;
+    border: none;
+    cursor: pointer;
+    margin: 15px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.student-button:hover {
+    background: #A07121;
+}
+
+.student-title {
+    color: #302c1b;
+    font-family: 'Open Sans';
+    font-size: 25px;
+    text-decoration: none;
+    margin-top: 1em;
+    align-self: center;
+}
+
+.student-subtitle {
+    color: #302c1b;
+    font-family: 'Open Sans';
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    align-self: left;
+    margin-left: 220px;
+}
+
+.student-single {
+    width: 55vw;
+    background-color: #f7b443;
+    border-radius: 10px;
+    box-shadow: 0px 5px 5px #24072C;
+    margin: auto;
+    margin-top: 40px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    overflow-wrap: wrap;
+    overflow: wrap;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.student-header-main {
+    display: flex;
+    flex-direction: column;
+    vertical-align: center;
+    margin: auto;
+}
+
+.student-header-sub {
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    align-items: center;
+    vertical-align: center;
+    align-self: left;
+    margin-bottom: 10px;
+}
+
+.student-header-sub .student-title {
+    margin: auto !important;
+}
+
+.student-header-sub .modify {
+    margin: auto !important;
 }

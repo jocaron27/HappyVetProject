@@ -164,6 +164,7 @@ export function deleteStudent(studentId, history) {
     .then(() => {
       dispatch(fetchStudents())
     })
+    .then(() => history.push('/students'))
   }
 }
 

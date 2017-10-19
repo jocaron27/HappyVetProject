@@ -5,16 +5,35 @@ import { Link } from 'react-router-dom';
 function SingleCampus(props) {
     const { campus, students } = props;
     return (
-        <div>
-            <Link to={`/campuses/edit/${campus.id}`}>
-                <button value={campus.id} className="btn btn-default">Edit</button>
-            </Link>
-            <div className="title">{campus.name}</div>
-            <div className="subtitle">Location: {campus.location}</div>
-            <img src={campus.imageUrl} />
-            <ul>
-                {students.map(student => <li key={student.id}><Link to={`/students/${student.id}`}>{student.fullName}</Link></li>)}
-            </ul>
+        <div className="main">
+            <div className="campus-single">
+                <div className="campus-info">
+                    <img src={campus.imageUrl} />
+                    <div className="campus-header-main">
+                        <div className="campus-header-sub">
+                            <div className="campus-title">{campus.name}</div>
+                            <div className="modify">
+                                <Link to={`/campuses/edit/${campus.id}`}>
+                                    <button value={campus.id} className="glyphicon glyphicon-pencil" />
+                                </Link>
+                            </div>
+                        </div>
+                        <div className="campus-subtitle">Location: {campus.location}</div>
+                    </div>
+                </div>
+                <h2 className="student-subtitle">Students:</h2>
+                <div className="student-list">
+                <table>
+                    {students.map(student => {
+                        return (
+                            <tr key={student.id}>
+                                <Link to={`/students/${student.id}`}><button className="student-button">{student.fullName}</button></Link>
+                            </tr>
+                        )}
+                    )}
+                </table>
+            </div>
+            </div>
         </div>
     )
 }
