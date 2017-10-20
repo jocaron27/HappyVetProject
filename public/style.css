@@ -1,5 +1,20 @@
 @import url('https://fonts.googleapis.com/css?family=Concert+One|Open+Sans:400,800|Pacifico');
 
+/* ----------- Mobile -------------- */
+
+@media all and (max-width: 640px) { 
+    .campus-list {
+        flex-direction: column;
+        width: 100vw;
+    }
+
+    .campus {
+        width: 75vw;
+        height: 75vw;
+        margin-top: 70px;
+    }
+}
+
 /* ----------- General -------------- */
 
 body {

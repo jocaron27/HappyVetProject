@@ -4,8 +4,6 @@ The "Margaret Hamilton Interplanetary Academy of JavaScript" uses Sequelize, Exp
 
 ## Getting started
 
-Video walkthrough: https://www.youtube.com/watch?v=_ve0UOawS9g&feature=youtu.be
-
 1. Fork and clone this repo
 2. Run `npm install` to install all modules
 3. Run `node seed.js` to seed the database
