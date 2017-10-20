@@ -36,7 +36,6 @@ function EditStudent(props) {
                         type="text"
                         name="age"
                         placeholder={student.age}
-                        min="18"
                     />
                     <label htmlFor="name">Student Email:</label>
                     <input

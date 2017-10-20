@@ -16,6 +16,7 @@ function AddStudent(props) {
                     type="text"
                     name="first"
                     placeholder="Enter first name"
+                    required
                 />
                 <input
                     value={newStudentEntryLastName}
@@ -24,6 +25,7 @@ function AddStudent(props) {
                     type="text"
                     name="last"
                     placeholder="Enter last name"
+                    required
                 />
                 <input
                     value={newStudentEntryAge}
@@ -32,7 +34,7 @@ function AddStudent(props) {
                     type="text"
                     name="age"
                     placeholder="Enter age"
-                    min="18"
+                    required
                 />
                 <input
                     value={newStudentEntryEmail}
@@ -41,9 +43,11 @@ function AddStudent(props) {
                     type="text"
                     name="email"
                     placeholder="Enter email"
+                    required
                 />
+                <label htmlFor="campusId">Choose a Campus:</label>
+                <br />
                 <select name="campusId" value={newStudentEntryCampusId} onChange={handleChangeCampusId}>
-                    <option>Choose a Campus</option>
                     {allCampuses.map(campus => <option key={campus.id} value={campus.id}>{campus.name}</option>)}
                 </select>
             </div>

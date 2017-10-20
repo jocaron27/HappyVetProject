@@ -62,6 +62,9 @@ function EditCampus(props) {
                         )}
                     </table>
                 </div>
+                    <div className="student-add">
+                    <Link to="/new-student"><button className="button-main"><span className="glyphicon glyphicon-plus" />Add Student</button></Link>
+                </div>
             </form>
         </div>
     )
