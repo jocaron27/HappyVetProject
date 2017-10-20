@@ -24,6 +24,7 @@ function SingleCampus(props) {
                 <h2 className="student-subtitle">Students:</h2>
                 <div className="student-list">
                 <table>
+                <tbody>
                     {students.map(student => {
                         return (
                             <tr key={student.id}>
@@ -31,6 +32,7 @@ function SingleCampus(props) {
                             </tr>
                         )}
                     )}
+                </tbody>
                 </table>
             </div>
             </div>

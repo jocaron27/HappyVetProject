@@ -12,6 +12,7 @@ function AllStudents(props) {
             </div>
             <div className="student-list">
                 <table>
+                <tbody>
                 {students.map(student => {
                     return (
                         <tr key={student.id}>
@@ -25,6 +26,7 @@ function AllStudents(props) {
                         </tr>
                     )}
                 )}
+                </tbody>
                 </table>
             </div>
         </div>

@@ -46,6 +46,7 @@ function EditCampus(props) {
                 <div className="edit-students">
                     <h2 className="instructions">Edit Students</h2>
                     <table className="student-list">
+                    <tbody>
                         {students.map(student => {
                             return (
                             <tr key={student.id}>
@@ -60,6 +61,7 @@ function EditCampus(props) {
                             </tr>
                             )}
                         )}
+                    </tbody>
                     </table>
                 </div>
                     <div className="student-add">
