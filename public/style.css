@@ -2,16 +2,35 @@
 
 /* ----------- Mobile -------------- */
 
-@media all and (max-width: 640px) { 
+@media only screen and (max-width: 768px) { 
+
+    .main {
+        width: 90vw !important;
+    }
+
     .campus-list {
-        flex-direction: column;
-        width: 100vw;
+        flex-direction: column !important;
+        width: 100vw !important;
     }
 
     .campus {
-        width: 75vw;
-        height: 75vw;
-        margin-top: 70px;
+        width: 75vw !important;
+        height: 75vw !important;
+        margin-top: 70px !important;
+    }
+
+    .student-button {
+        width: 90% !important;
+        height: 82px !important;
+        font-size: 30px !important;
+    }
+
+    .student-list {
+        width: 100% !important;
+    }
+
+    .student-list > table {
+        width: 100% !important;
     }
 }
 
