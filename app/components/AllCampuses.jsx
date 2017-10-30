@@ -41,8 +41,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch, ownProps) {
     return {
         removeCampus: function(event) {
-            confirm("Are you sure you want to delete this campus?");
-            console.log(event.target.value);
             dispatch(deleteCampus(event.target.value, ownProps.history));
             dispatch(fetchCampuses());
         }
