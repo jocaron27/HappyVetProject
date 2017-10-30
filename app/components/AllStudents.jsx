@@ -42,7 +42,6 @@ function mapStateToProps(state) {
 function mapDispatchToProps(dispatch, ownProps) {
     return {
         removeStudent: function(event) {
-            confirm("Are you sure you want to delete this student?");
             dispatch(deleteStudent(event.target.value, ownProps.history))
             dispatch(fetchStudents());
         }
