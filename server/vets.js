@@ -19,13 +19,6 @@ router.get('/:id', (req, res, next) => {
     .catch(console.error)
 })
 
-//Create new vet
-router.post('/', (req, res, next) => {
-	Vet.create(req.body)
-	.then(vet => res.json(vet))
-    .catch(console.error)
-})
-
 //Update vet
 router.put('/:id', (req, res, next) => {
     Vets.findOne({
@@ -40,16 +33,6 @@ router.put('/:id', (req, res, next) => {
     .catch(console.error)
 })
 
-//Delete vet
-router.delete('/:id', (req, res, next) => {
-    Vets.findOne({
-        where: {
-            id: req.params.id
-        }
-    })
-    .then(vet => vet.destroy())
-    .then(res.sendStatus(200))
-    .catch(console.error)
-})
+
 
 module.exports = router

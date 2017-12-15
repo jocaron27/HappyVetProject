@@ -18,7 +18,7 @@ export default class Root extends Component {
                 <Nav />
                 <main>
                     <Switch>
-                        <Route exact path="/myvets" component={AllVets} />
+                        <Route exact path="/" component={AllVets} />
                         <Route exact path="/vets/:id" component={SingleVet} />
                     </Switch>
                 </main>

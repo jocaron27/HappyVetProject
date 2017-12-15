@@ -2,5 +2,5 @@
 const Users = require('./users');
 const Vets = require('./vets');
 
-Vets.belongsTo(Users);
+Vets.hasMany(Users);
 Users.hasMany(Vets);
