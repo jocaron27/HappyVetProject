@@ -6,11 +6,10 @@ export default class Nav extends Component {
         return (
             <nav>
                 <div id="title">
-                    <Link to="/"><h2>Margaret Hamilton Interplanetary Academy of JavaScript</h2></Link>
+                    <Link to="/"><h2>HappyVet</h2></Link>
                 </div>
                 <div id="menu">
-                    <Link to="/campuses" className={window.location.pathname === '/campuses' ? 'active' : ''}><div>Campuses</div></Link>
-                    <Link to="/students" className={window.location.pathname === '/students' ? 'active' : ''}><div>Students</div></Link>
+                    <Link to="/vets"><div>My Vets</div></Link>
                 </div>
             </nav>
         )

@@ -1,53 +1,53 @@
 const router = require('express').Router();
-const Campus = require('../db/models/campuses');
+const Vets = require('../db/models/vets');
 
-//Get all campuses
+//Get all vets
 router.get('/', (req, res, next) => {
-    Campus.findAll({})
-    .then(campuses => res.json(campuses))
+    Vets.findAll({})
+    .then(vets => res.json(vets))
     .catch(console.error)
 })
 
-//Get campus by id
+//Get vet by id
 router.get('/:id', (req, res, next) => {
-    Campus.findOne({
+    Vets.findOne({
         where: {
             id: req.params.id
         }
     })
-    .then(campus => res.json(campus))
+    .then(vet => res.json(vet))
     .catch(console.error)
 })
 
-//Create new campus
+//Create new vet
 router.post('/', (req, res, next) => {
-	Campus.create(req.body)
-	.then(campus => res.json(campus))
+	Vet.create(req.body)
+	.then(vet => res.json(vet))
     .catch(console.error)
 })
 
-//Update campus
+//Update vet
 router.put('/:id', (req, res, next) => {
-    Campus.findOne({
+    Vets.findOne({
         where: {
             id: req.params.id
         }
     })
-    .then(campus => {
-        return campus.update(req.body)
+    .then(vet => {
+        return vet.update(req.body)
     })
-    .then(campus => res.json(campus))
+    .then(vet => res.json(vet))
     .catch(console.error)
 })
 
-//Delete campus
+//Delete vet
 router.delete('/:id', (req, res, next) => {
-    Campus.findOne({
+    Vets.findOne({
         where: {
             id: req.params.id
         }
     })
-    .then(campus => campus.destroy())
+    .then(vet => vet.destroy())
     .then(res.sendStatus(200))
     .catch(console.error)
 })
